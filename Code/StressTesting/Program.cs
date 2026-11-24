@@ -2,7 +2,7 @@ using System;
 using System.Diagnostics;
 using System.IO;
 using System.Runtime.InteropServices;
-using OporaApp;
+using SupportApp;
 
 namespace StressTesting
 {
@@ -58,11 +58,11 @@ namespace StressTesting
         private static void Main(string[] args)
         {
             int totalBuilds = args.Length > 0 ? int.Parse(args[0]) : 60;
-            var builder = new Builder(new Kompas3DWrapper());
-            var parameters = OporeParameters.Default();
-            string savePath = Path.Combine(Path.GetTempPath(), "OporaStress.m3d");
+            var parameters = SupportParameters.Default();
+            string savePath = Path.Combine(Path.GetTempPath(), "SupportStress.m3d");
             string logPath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "log.txt");
 
+            using (var builder = new SupportBuilder())
             using (var writer = new StreamWriter(logPath, false))
             {
                 double prevCpuSeconds = 0;
@@ -87,6 +87,8 @@ namespace StressTesting
                     prevCpuSeconds = cpuSeconds;
                     Console.WriteLine("{0}\t{1:hh\\:mm\\:ss}\t{2:F3}\t{3:F1}",
                         i + 1, stopwatch.Elapsed, ramGb, cpuPercent);
+
+                    builder.CloseModel();
                 }
             }
 

@@ -14,7 +14,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\OporaApp\OporaApp.csproj" />
+    <ProjectReference Include="..\SupportApp\SupportApp.csproj" />
   </ItemGroup>
 
 </Project>

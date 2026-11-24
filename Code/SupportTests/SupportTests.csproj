@@ -4,6 +4,8 @@
     <TargetFramework>net472</TargetFramework>
     <IsPackable>false</IsPackable>
     <IsTestProject>true</IsTestProject>
+    <RootNamespace>SupportTests</RootNamespace>
+    <AssemblyName>SupportTests</AssemblyName>
   </PropertyGroup>
 
   <ItemGroup>
@@ -13,7 +15,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\OporaApp\OporaApp.csproj" />
+    <ProjectReference Include="..\SupportApp\SupportApp.csproj" />
   </ItemGroup>
 
 </Project>

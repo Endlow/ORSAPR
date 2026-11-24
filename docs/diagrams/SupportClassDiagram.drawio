@@ -1,0 +1,55 @@
+<mxfile host="app.diagrams.net" agent="SupportClassDiagram generator" version="24.0.0">
+  <diagram id="support-class-diagram" name="Support class diagram">
+    <mxGraphModel dx="1143.8515625" dy="1572" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1143.8515625" pageHeight="1572" math="0" shadow="0">
+      <root>
+        <mxCell id="0"/>
+        <mxCell id="1" parent="0"/>
+        <mxCell id="mainForm" value="&lt;b&gt;MainForm&lt;/b&gt;&lt;br&gt;&lt;hr&gt;&lt;br&gt;- _parametersControl : SupportParametersControl&lt;br&gt;- _builder : SupportBuilder&lt;br&gt;- _statusLabel : Label&lt;br&gt;&lt;hr&gt;&lt;br&gt;+ MainForm()&lt;br&gt;- OnBuildModelClick(sender, e) : void&lt;br&gt;- ValidateParameters(parameters) : IReadOnlyList&amp;lt;ValidationError&amp;gt;&lt;br&gt;- BuildModel(parameters) : void&lt;br&gt;- ShowError(message) : void&lt;br&gt;# OnFormClosed(e) : void" style="rounded=0;whiteSpace=wrap;html=1;align=left;verticalAlign=top;fontFamily=Helvetica;fontSize=13;fillColor=#DCE6F2;strokeColor=#2F4F6F;strokeWidth=2;" vertex="1" parent="1">
+          <mxGeometry x="36" y="36" width="471" height="381" as="geometry"/>
+        </mxCell>
+        <mxCell id="control" value="&lt;b&gt;SupportParametersControl&lt;/b&gt;&lt;br&gt;&lt;hr&gt;&lt;br&gt;- _fields : Dictionary&amp;lt;SupportParameter, NumericUpDown&amp;gt;&lt;br&gt;- _toolTip : ToolTip&lt;br&gt;&lt;hr&gt;&lt;br&gt;+ SupportParametersControl()&lt;br&gt;+ GetParameters() : SupportParameters&lt;br&gt;+ SetParameters(parameters) : void&lt;br&gt;+ SetDefault() : void&lt;br&gt;+ ClearErrors() : void&lt;br&gt;+ SetError(parameter, message) : void&lt;br&gt;+ ApplyErrors(errors) : void" style="rounded=0;whiteSpace=wrap;html=1;align=left;verticalAlign=top;fontFamily=Helvetica;fontSize=13;fillColor=#DCE6F2;strokeColor=#2F4F6F;strokeWidth=2;" vertex="1" parent="1">
+          <mxGeometry x="36" y="481" width="471" height="354" as="geometry"/>
+        </mxCell>
+        <mxCell id="parameters" value="&lt;b&gt;SupportParameters&lt;/b&gt;&lt;br&gt;&lt;hr&gt;&lt;br&gt;+ SupportLength : double&lt;br&gt;+ SupportWidth : double&lt;br&gt;+ SupportHeight : double&lt;br&gt;+ GrooveLength : double&lt;br&gt;+ GrooveHeight : double&lt;br&gt;+ GrooveDepth : double&lt;br&gt;+ ThroughSlot : bool&lt;br&gt;+ GrooveEndMargin : double = 10&lt;br&gt;+ GrooveVerticalMargin : double = 20&lt;br&gt;+ GrooveBackMargin : double = 10&lt;br&gt;&lt;hr&gt;&lt;br&gt;+ Default() : SupportParameters&lt;br&gt;+ Validate() : IReadOnlyList&amp;lt;ValidationError&amp;gt;" style="rounded=0;whiteSpace=wrap;html=1;align=left;verticalAlign=top;fontFamily=Helvetica;fontSize=13;fillColor=#DCE6F2;strokeColor=#2F4F6F;strokeWidth=2;" vertex="1" parent="1">
+          <mxGeometry x="36" y="899" width="471" height="408" as="geometry"/>
+        </mxCell>
+        <mxCell id="validation" value="&lt;b&gt;ValidationError&lt;/b&gt;&lt;br&gt;&lt;hr&gt;&lt;br&gt;+ Parameter : SupportParameter&lt;br&gt;+ Message : string&lt;br&gt;&lt;hr&gt;&lt;br&gt;+ ValidationError(parameter, message)" style="rounded=0;whiteSpace=wrap;html=1;align=left;verticalAlign=top;fontFamily=Helvetica;fontSize=13;fillColor=#DCE6F2;strokeColor=#2F4F6F;strokeWidth=2;" vertex="1" parent="1">
+          <mxGeometry x="36" y="1371" width="471" height="165" as="geometry"/>
+        </mxCell>
+        <mxCell id="builder" value="&lt;b&gt;SupportBuilder&lt;/b&gt;&lt;br&gt;&lt;hr&gt;&lt;br&gt;- _wrapper : Kompas3DWrapper&lt;br&gt;&lt;hr&gt;&lt;br&gt;+ SupportBuilder()&lt;br&gt;+ SupportBuilder(wrapper)&lt;br&gt;+ Build(parameters, path) : string&lt;br&gt;- BuildBase(parameters) : void&lt;br&gt;- BuildSlot(parameters) : void&lt;br&gt;+ SaveModel(path) : void&lt;br&gt;+ CloseModel() : void&lt;br&gt;+ Dispose() : void" style="rounded=0;whiteSpace=wrap;html=1;align=left;verticalAlign=top;fontFamily=Helvetica;fontSize=13;fillColor=#DCE6F2;strokeColor=#2F4F6F;strokeWidth=2;" vertex="1" parent="1">
+          <mxGeometry x="657" y="36" width="451" height="327" as="geometry"/>
+        </mxCell>
+        <mxCell id="wrapper" value="&lt;b&gt;Kompas3DWrapper&lt;/b&gt;&lt;br&gt;&lt;hr&gt;&lt;br&gt;- _launcher : KompasLauncher&lt;br&gt;- _document3D : ksDocument3D&lt;br&gt;- _part : ksPart&lt;br&gt;&lt;hr&gt;&lt;br&gt;+ Kompas3DWrapper()&lt;br&gt;+ Kompas3DWrapper(launcher)&lt;br&gt;+ ConnectOrStart() : void&lt;br&gt;+ CreateNewPartDocument() : void&lt;br&gt;+ CreateSketch(planeType) : SketchSession&lt;br&gt;+ BaseExtrude(sketch, depth) : void&lt;br&gt;+ CutExtrude(sketch, depth) : void&lt;br&gt;+ SetIsoView() : void&lt;br&gt;+ SaveAs(path) : void&lt;br&gt;+ CloseDocument() : void&lt;br&gt;+ Dispose() : void" style="rounded=0;whiteSpace=wrap;html=1;align=left;verticalAlign=top;fontFamily=Helvetica;fontSize=13;fillColor=#DCE6F2;strokeColor=#2F4F6F;strokeWidth=2;" vertex="1" parent="1">
+          <mxGeometry x="657" y="427" width="451" height="462" as="geometry"/>
+        </mxCell>
+        <mxCell id="launcher" value="&lt;b&gt;KompasLauncher&lt;/b&gt;&lt;br&gt;&lt;hr&gt;&lt;br&gt;- _kompas : KompasObject&lt;br&gt;+ Kompas : KompasObject&lt;br&gt;+ IsConnected : bool&lt;br&gt;&lt;hr&gt;&lt;br&gt;+ ConnectOrStart() : void&lt;br&gt;+ Disconnect() : void&lt;br&gt;+ Dispose() : void" style="rounded=0;whiteSpace=wrap;html=1;align=left;verticalAlign=top;fontFamily=Helvetica;fontSize=13;fillColor=#DCE6F2;strokeColor=#2F4F6F;strokeWidth=2;" vertex="1" parent="1">
+          <mxGeometry x="657" y="953" width="451" height="246" as="geometry"/>
+        </mxCell>
+        <mxCell id="edge0" value="композиция" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;startArrow=diamondThin;startFill=1;endArrow=none;endFill=0;strokeColor=#1F4E79;strokeWidth=2;fontColor=#505050;fontSize=13;" edge="1" parent="1" source="mainForm" target="control">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="edge1" value="использует" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;dashed=1;startArrow=none;endArrow=open;endFill=0;strokeColor=#78501E;strokeWidth=2;fontColor=#505050;fontSize=13;" edge="1" parent="1" source="mainForm" target="parameters">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="edge2" value="композиция" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;startArrow=diamondThin;startFill=1;endArrow=none;endFill=0;strokeColor=#1F4E79;strokeWidth=2;fontColor=#505050;fontSize=13;" edge="1" parent="1" source="mainForm" target="builder">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="edge3" value="использует" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;dashed=1;startArrow=none;endArrow=open;endFill=0;strokeColor=#78501E;strokeWidth=2;fontColor=#505050;fontSize=13;" edge="1" parent="1" source="control" target="parameters">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="edge4" value="использует" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;dashed=1;startArrow=none;endArrow=open;endFill=0;strokeColor=#78501E;strokeWidth=2;fontColor=#505050;fontSize=13;" edge="1" parent="1" source="parameters" target="validation">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="edge5" value="использует" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;dashed=1;startArrow=none;endArrow=open;endFill=0;strokeColor=#78501E;strokeWidth=2;fontColor=#505050;fontSize=13;" edge="1" parent="1" source="builder" target="parameters">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="edge6" value="композиция" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;startArrow=diamondThin;startFill=1;endArrow=none;endFill=0;strokeColor=#1F4E79;strokeWidth=2;fontColor=#505050;fontSize=13;" edge="1" parent="1" source="builder" target="wrapper">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="edge7" value="композиция" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;startArrow=diamondThin;startFill=1;endArrow=none;endFill=0;strokeColor=#1F4E79;strokeWidth=2;fontColor=#505050;fontSize=13;" edge="1" parent="1" source="wrapper" target="launcher">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
